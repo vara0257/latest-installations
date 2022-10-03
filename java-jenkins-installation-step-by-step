@@ -1,0 +1,24 @@
+[root@cicd-new ~]# sudo yum install java-17-openjdk
+[root@cicd-new ~]# yum install wget -y
+[root@cicd-new ~]# wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+
+
+[root@cicd-new ~]# rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+[root@cicd-new ~]# yum repolist
+[root@cicd-new ~]# sudo yum install jenkins -y
+
+[root@cicd-new ~]# sudo systemctl enable jenkins
+[root@cicd-new ~]# sudo systemctl start jenkins
+[root@cicd-new ~]# sudo systemctl status jenkins	
+
+
+https://varaprasad-palla.medium.com/step-by-step-installation-of-jenkins-on-aws-ec2-linux-b0645e6b9ce9
+
+[root@cicd-new ~]# sudo ps -ef | grep -i jenkins
+[root@cicd-new ~]# sudo id jenkins
+
+(If netstat is not working, then you can use other commands to check 8080 port is listening or not)
+[root@cicd-new ~]# sudo netstat -anlp | grep :8080   
+[root@cicd-new ~]# su -s /bin/bash jenkins
+
+[root@cicd-new ~]# cat /var/lib/jenkins/secrets/initialAdminPassword
